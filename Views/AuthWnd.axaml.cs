@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace InterShopAdminDesktop.Views;
 
-public partial class MainWindow : Window
+public partial class AuthWnd : Window
 {
-    public MainWindow()
+    public AuthWnd()
     {
         InitializeComponent();
     }
