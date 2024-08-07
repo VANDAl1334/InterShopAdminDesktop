@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterShopAdminDesktop", "InterShopAdminDesktop.csproj", "{42417C4A-FEC0-4E2B-B111-59D2EFE7DAD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterShopAdminDesktop", "InterShopAdminDesktop\InterShopAdminDesktop.csproj", "{7939FEC6-806E-407E-B9F7-884ABD2794C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{42417C4A-FEC0-4E2B-B111-59D2EFE7DAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42417C4A-FEC0-4E2B-B111-59D2EFE7DAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42417C4A-FEC0-4E2B-B111-59D2EFE7DAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42417C4A-FEC0-4E2B-B111-59D2EFE7DAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7939FEC6-806E-407E-B9F7-884ABD2794C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7939FEC6-806E-407E-B9F7-884ABD2794C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7939FEC6-806E-407E-B9F7-884ABD2794C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7939FEC6-806E-407E-B9F7-884ABD2794C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
