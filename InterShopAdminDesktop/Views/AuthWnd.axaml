@@ -6,18 +6,18 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="InterShopAdminDesktop.Views.AuthWnd"
         Icon="/Assets/Logo.ico"
-        Title="InterShopDesktop - Вход в систему">
+        Title="InterShopDesktop - Вход в систему" Loaded="Window_Loaded">
 
 <StackPanel>
     <Label Content="Вход в систему"></Label>
 
     <StackPanel>
         <TextBlock Text="Логин"></TextBlock>
-        <TextBox Text="{Binding Login, DataType={x:Type vm:UserViewModel}}"></TextBox>
+        <TextBox Name="TbLogin" Text="{Binding Login, DataType={x:Type vm:UserViewModel}}"></TextBox>
     </StackPanel> 
      <StackPanel>
         <TextBlock Text="Пароль"></TextBlock>
-        <TextBox Text="{Binding Password, DataType={x:Type vm:UserViewModel}}"></TextBox>
+        <TextBox Name="TbPassword" Text="{Binding Password, DataType={x:Type vm:UserViewModel}}"></TextBox>
     </StackPanel>
     <Button Content="Войти" Click="Button_Click"/>
 </StackPanel>
