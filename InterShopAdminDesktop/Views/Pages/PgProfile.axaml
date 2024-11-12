@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InterShopAdminDesktop.Views.Pages.PgProfile"
+             Width="742" Height="537">
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>    
+    </UserControl.Styles>
+    <Grid>
+        <StackPanel Orientation="Vertical">        
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Логин: "/>
+                <TextBlock Name="Login"/>            
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Почта: "/>
+                <TextBlock Name="Mail"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

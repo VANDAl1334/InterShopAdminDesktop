@@ -1,0 +1,87 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:InterShopAdminDesktop.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="537"
+        Width="800" Height="537"
+        x:Class="InterShopAdminDesktop.Views.WndMain"
+        Icon="/Assets/Logo.ico"
+        Title="InterShopDesktop">
+        <Window.Styles>
+            <Style Selector="Image">
+                <Setter Property="Width" Value="30"/>
+                <Setter Property="Height" Value="30"/>
+            </Style>
+            <Style Selector="Button">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style Selector="StackPanel">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+            <Style Selector="TextBlock">
+                <Setter Property="Margin" Value="15 5 0 5"/>
+            </Style>
+        </Window.Styles>
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <ListBox Grid.Column="0" x:Name="Menu" Background="Gray" MinWidth="58" MaxWidth="180" Width="58"  HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListBoxItem Name="Btn_Menu" HorizontalContentAlignment="Right" HorizontalAlignment="Stretch" PointerPressed="Menu_Pressed">
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/list.png"/>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Products" PointerPressed="ListBoxProducts_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Products.png"/>
+                <TextBlock Text="Товары"/>
+            </StackPanel>
+        </ListBoxItem>        
+        <ListBoxItem x:Name="Category" PointerPressed="ListBoxCategory_Pressed">
+            <StackPanel>            
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Category.png"/>
+                <TextBlock Text="Категория"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Discounts" PointerPressed="ListBoxDiscounts_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Discount.png"/>
+                <TextBlock Text="Акции"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Users" PointerPressed="ListBoxUsers_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Users.png"/>
+                <TextBlock Text="Пользователи"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Statistics" PointerPressed="ListBoxStatistics_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Statistics.png"/>
+                <TextBlock Text="Статистика"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Profile" PointerPressed="ListBoxProfile_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Profile.png"/>
+                <TextBlock Text="Профиль"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Settings" PointerPressed="ListBoxSettings_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/Settings.png"/>
+                <TextBlock Text="Настройки"/>
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem x:Name="Exit" PointerPressed="ListBoxExit_Pressed">
+            <StackPanel>
+                <Image Source="avares://InterShopAdminDesktop/Assets/InterShopDesktop_Icons/exit.png"/>
+                <TextBlock Text="Выйти"/>
+            </StackPanel>
+        </ListBoxItem>
+    </ListBox>   
+    <ContentControl Name="MainFrame"  Grid.ColumnSpan="2" Margin="58 0 0 0" HorizontalAlignment="Stretch" />
+</Grid>
+</Window>

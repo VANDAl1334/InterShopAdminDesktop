@@ -8,7 +8,9 @@ namespace InterShopAdminDesktop.ViewModels
     public class UserViewModel : ReactiveObject
     {
         private User user;
+
         public UserViewModel(User user) => this.user = user;
+        
         public string Login
         {
             get { return user.Login; }
