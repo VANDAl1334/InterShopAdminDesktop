@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InterShopAdminDesktop.Views.Pages.PgSettings"
+             Width="742" Height="537">
+    <Grid>
+        <StackPanel> 
+            <TextBlock Text="Строка подключения"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="ProtocolsComBox" Margin="6">
+                    <ComboBoxItem>http</ComboBoxItem>    
+                    <ComboBoxItem>https</ComboBoxItem>    
+                </ComboBox>
+                <TextBox Name="StrConnection"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

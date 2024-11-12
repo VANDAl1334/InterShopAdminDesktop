@@ -25,13 +25,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Name="ImgMessageType" Width="45" Height="45"></Image>
+        <Image Name="ImgMessageType" Width="30" Height="30"></Image>
         <TextBlock Name="TblContent" Grid.Column="1" VerticalAlignment="Center" Text="Алло"></TextBlock>
         
-        <Button Name="BtnOk" Grid.ColumnSpan="3" Click="Btn_Click" HorizontalContentAlignment="Center" Grid.Row="1" Content="ОК"/>
-        <Button Name="BtnCancel" Grid.Column="2" Click="Btn_Click" IsVisible="False" Grid.Row="1" Content="Отмена"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="BtnOk" Grid.ColumnSpan="3" Click="Btn_Click" HorizontalContentAlignment="Center" Grid.Row="1" Content="ОК"/>
+            <Button Name="BtnCancel" Grid.Column="2" Click="Btn_Click" IsVisible="False" Grid.Row="1" Content="Отмена"/>
+        </StackPanel>
     </Grid>
 </Window>

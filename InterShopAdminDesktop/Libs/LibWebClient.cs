@@ -2,9 +2,13 @@ using System;
 using System.Data.Common;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Avalonia;
+using InterShopAdminDesktop.Views;
 
 namespace InterShopAdminDesktop.Libs;
 
@@ -13,7 +17,6 @@ namespace InterShopAdminDesktop.Libs;
 /// </summary>
 public static class LibWebClient
 {
-    private static HttpClient httpClient = new HttpClient();
     private static string token;
 
     /// <summary>
@@ -27,14 +30,15 @@ public static class LibWebClient
         }
         set
         {
-            token = value;
-            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            token = value; 
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);           
         }
     }
 
     /// <summary>
     /// Адрес сервера
     /// </summary>
+    private static HttpClient httpClient = new();
     public static Uri BaseURL
     {
         get
@@ -42,7 +46,10 @@ public static class LibWebClient
             return httpClient.BaseAddress;
         }
         set
-        {
+        {            
+            httpClient = new();
+            httpClient.Timeout = TimeSpan.FromSeconds(5);
+            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             httpClient.BaseAddress = value;
         }
     }
@@ -61,11 +68,27 @@ public static class LibWebClient
     /// <returns></returns>
     public static async Task<HttpResponseMessage> SendAsync(HttpMethod method, string url, object content)
     {
-        HttpResponseMessage response = new HttpResponseMessage();
-
+        HttpResponseMessage response = new();
+        MessageBox messageBox;
         if (method == HttpMethod.Post)
         {
-            response = await httpClient.PostAsync(url, JsonContent.Create(content));
+        a:
+            try
+            {
+                response = await httpClient.PostAsync(url, JsonContent.Create(content));
+            }
+            catch (Exception ex)
+            {
+                messageBox = new("Попробовать еще раз?", MessageBoxTypes.Question);
+                bool result = await messageBox.ShowDialog(App.CurrentWindow);
+                if (result)
+                {
+                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+                    goto a;
+                }
+                (App.CurrentWindow as AuthWnd).Btn_Auth1.IsEnabled = true;
+                Console.WriteLine("Запрос отменен из-за тайм-аута." + ex);
+            }
         }
         else if (method == HttpMethod.Put)
         {
@@ -73,7 +96,7 @@ public static class LibWebClient
         }
         else if (method == HttpMethod.Get)
         {
-            StringBuilder queryParameters = new StringBuilder();
+            StringBuilder queryParameters = new();
             if (content != null)
             {
                 FieldInfo[] fields = content.GetType().GetFields();

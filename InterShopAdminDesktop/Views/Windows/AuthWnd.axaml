@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:InterShopAdminDesktop.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450"
+        x:Class="InterShopAdminDesktop.Views.AuthWnd"
+        Icon="/Assets/Logo.ico"
+        Title="InterShopDesktop - Вход в систему">
+
+<StackPanel>
+    <Label Content="Вход в систему"></Label>
+    <StackPanel> 
+        <TextBlock Text="Строка подключения"/>
+        <StackPanel Orientation="Horizontal">
+            <ComboBox x:Name="ProtocolsComBox" Margin="6">
+                <ComboBoxItem>http</ComboBoxItem>    
+                <ComboBoxItem>https</ComboBoxItem>    
+            </ComboBox>
+            <TextBox Name="StrConnection"/>
+        </StackPanel>
+    </StackPanel>
+    <StackPanel>
+        <TextBlock Text="Логин"/>
+        <TextBox Name="TbLogin" Text="{Binding Login, DataType={x:Type vm:UserViewModel}}"></TextBox>
+    </StackPanel> 
+     <StackPanel>
+        <TextBlock Text="Пароль"/>
+        <TextBox Name="TbPassword" Text="{Binding Password, DataType={x:Type vm:UserViewModel}}"/>
+        <StackPanel Orientation="Horizontal">            
+            <CheckBox Name="RememberMe"/>
+            <TextBlock Text="Не выходить из системы" Margin="0 0 0 0"/>
+        </StackPanel>
+    </StackPanel>
+    <Button Name="Btn_Auth1" Content="Войти" Click="Btn_Auth"/>
+</StackPanel>
+</Window>
